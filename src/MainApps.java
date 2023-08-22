@@ -17,8 +17,35 @@ public class MainApps {
         }
     }
 
-    public static void addTodoList(){
+    //add todo list
+    public static void addTodoList(String todo){
 
+        //Cek penuh
+        var penuh = true;
+        for (int i = 0; i < model.length; i++) {
+            if (model[i] == null){
+                penuh = false;
+                break;
+            }
+        }
+
+        //jika penuh
+        if (penuh){
+            var temp = model;
+            model = new String[model.length * 2];
+
+            for (int i = 0; i < temp.length; i++) {
+                model[i] = temp[i];
+            }
+        }
+
+        //tambah ke data
+        for (var i = 0; i <model.length; i++){
+            if(model[i] == null){
+                model[i] = todo;
+                break;
+            }
+        }
     }
 
     public static void removeTodoList(){
