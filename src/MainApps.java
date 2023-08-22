@@ -17,4 +17,16 @@ public class MainApps {
     public static void removeTodoList(){
 
     }
+
+    public static void viewShowTodoList(){
+
+    }
+
+    public static void viewAddTodoList(){
+
+    }
+
+    public static void viewRemoveTodoList(){
+
+    }
 }
