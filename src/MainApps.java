@@ -1,6 +1,10 @@
+import java.util.Scanner;
+
 public class MainApps {
 
     public static String[] model = new String[10];
+
+    public static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -65,6 +69,11 @@ public class MainApps {
             }
             return true;
         }
+    }
+    public static String input(String info){
+        System.out.print(info + " : ");
+        String data =scanner.nextLine();
+        return data;
     }
 
     public static void viewShowTodoList(){
