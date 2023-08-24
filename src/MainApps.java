@@ -4,9 +4,7 @@ import java.util.Scanner;
 public class MainApps {
 
     public static String[] model = new String[10];
-
     public static java.util.Scanner scanner = new java.util.Scanner(System.in);
-
     public static void main(String[] args) {
         viewShowTodoList();
     }
@@ -18,7 +16,6 @@ public class MainApps {
         for (var i = 0; i < model.length; i++) {
             var todo = model[i];
             var no = i + 1;
-
             if(todo != null ){
                 System.out.println(no + ". " + todo);
             }
@@ -28,7 +25,6 @@ public class MainApps {
 
     //add todo list
     public static void addTodoList(String todo){
-
         //Cek penuh
         var penuh = true;
         for (int i = 0; i < model.length; i++) {
@@ -37,7 +33,6 @@ public class MainApps {
                 break;
             }
         }
-
         //jika penuh
         if (penuh){
             var temp = model;
@@ -47,7 +42,6 @@ public class MainApps {
                 model[i] = temp[i];
             }
         }
-
         //tambah ke data
         for (var i = 0; i <model.length; i++){
             if(model[i] == null){
