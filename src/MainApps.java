@@ -12,6 +12,7 @@ public class MainApps {
 
     //show todo list
     public static void showTodoList(){
+        System.out.println("TODOLIST");
         for (var i = 0; i < model.length; i++) {
             var todo = model[i];
             var no = i + 1;
@@ -77,7 +78,25 @@ public class MainApps {
     }
 
     public static void viewShowTodoList(){
+        while (true) {
+            showTodoList();
 
+            System.out.println("MENU : ");
+            System.out.println("1. TAMBAH");
+            System.out.println("2. HAPUS");
+            System.out.println("x. KELUAR");
+
+            var input = input("PILIH ");
+            if (input.equals("1")) {
+                viewAddTodoList();
+            } else if (input.equals("2")) {
+                viewRemoveTodoList();
+            } else if (input.equals("x")) {
+                break;
+            } else {
+                System.out.println("GAK USAH NGIDE");
+            }
+        }
     }
 
     public static void viewAddTodoList(){
