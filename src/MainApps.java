@@ -1,3 +1,4 @@
+import java.util.Enumeration;
 import java.util.Scanner;
 
 public class MainApps {
@@ -7,12 +8,13 @@ public class MainApps {
     public static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
     public static void main(String[] args) {
-
+        viewShowTodoList();
     }
 
     //show todo list
     public static void showTodoList(){
-        System.out.println("TODOLIST");
+        System.out.println("\nTODOLIST");
+        System.out.println("--------------------");
         for (var i = 0; i < model.length; i++) {
             var todo = model[i];
             var no = i + 1;
@@ -21,6 +23,7 @@ public class MainApps {
                 System.out.println(no + ". " + todo);
             }
         }
+        System.out.println("--------------------");
     }
 
     //add todo list
@@ -100,10 +103,28 @@ public class MainApps {
     }
 
     public static void viewAddTodoList(){
+        System.out.println("\nMENAMBAH");
+        var todo = input("Todo (x jika batal)");
 
+        if (todo.equals("x")) {
+            //batal
+        } else {
+            addTodoList(todo);
+        }
     }
 
     public static void viewRemoveTodoList(){
+        System.out.println("\nHAPUS");
 
+        var number = input("NOMOR (x jika batal)");
+
+        if (number.equals("x")){
+            //batal
+        }else {
+            boolean succes = removeTodoList(Integer.valueOf(number));
+            if (!succes){
+                System.out.println("GAGAL MENGHAPUS");
+            }
+        }
     }
 }
