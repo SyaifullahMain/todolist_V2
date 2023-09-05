@@ -31,13 +31,17 @@ public class TodoListServiceImpl implements TodoListService {
     public void addTodoList(String todo) {
         TodoList todoList = new TodoList(todo);
         todoListRepository.add(todoList);
-        System.out.println("Sukse cuy "+ todo);
+        // System.out.println("Sukse cuy "+ todo);
     }
 
     @Override
     public void removeTodoList(Integer number) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeTodoList'");
+        boolean succes = todoListRepository.remove(number);
+        if (succes) {
+            System.out.println("sukses cuy "+ number);
+        } else{
+            System.out.println("gagal cuy " + number);
+        }
     }
     
 }
