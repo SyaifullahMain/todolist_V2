@@ -21,7 +21,7 @@ public class TodoListServiceImpl implements TodoListService {
             var todo = model[i];
             var no = i + 1;
             if(todo != null ){
-                System.out.println(no + ". " + todo);
+                System.out.println(no + ". " + todo.getTodo());
             }
         }
         System.out.println("--------------------");
@@ -29,8 +29,9 @@ public class TodoListServiceImpl implements TodoListService {
 
     @Override
     public void addTodoList(String todo) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addTodoList'");
+        TodoList todoList = new TodoList(todo);
+        todoListRepository.add(todoList);
+        System.out.println("Sukse cuy "+ todo);
     }
 
     @Override
