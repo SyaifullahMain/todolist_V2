@@ -11,9 +11,6 @@ public class InputUtil {
     public InputUtil(InputStream source) {
         this.scanner = new Scanner(source).useDelimiter(Pattern.compile("\r\n|\n"));
     }
-    public void close() {
-        scanner.close();
-    }
     public String getString(String prompt) {
         System.out.print(prompt);
         return scanner.next().trim();

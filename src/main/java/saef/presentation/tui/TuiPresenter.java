@@ -24,8 +24,8 @@ public class TuiPresenter implements IPresenter {
 
     @Override
     public boolean showMainMenu() {
-        List<TodoList> lists = todoListService.getAll();
         while (true) {
+            List<TodoList> lists = todoListService.getAll();
             System.out.println("TODOLIST APP");
             RenderTodo.renderTodo(lists);
             boolean shouldContinue = Menu.showMenu(scanner, "TodoList Main Menu", new MenuBase[]{

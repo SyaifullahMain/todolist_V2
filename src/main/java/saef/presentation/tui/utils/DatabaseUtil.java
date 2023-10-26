@@ -4,7 +4,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 public class DatabaseUtil {
-    private static HikariDataSource hikariDataSource;
+    private static final HikariDataSource hikariDataSource;
     static {
         HikariConfig configuration = new HikariConfig();
         configuration.setDriverClassName("com.mysql.cj.jdbc.Driver");

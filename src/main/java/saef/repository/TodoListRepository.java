@@ -59,31 +59,23 @@ public class TodoListRepository implements ITodoListRepository {
             statement.setInt(1, number);
 
             try (ResultSet resultSet = statement.executeQuery()) {
-                if (resultSet.next()) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return resultSet.next();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
     @Override
-    public boolean remove(Integer number) {
+    public void remove(Integer number) {
         if (isExists(number)) {
             String sql = "DELETE FROM todolist WHERE id = ?";
             try (Connection connection = dataSource.getConnection();
                  PreparedStatement statement = connection.prepareStatement(sql)) {
                 statement.setInt(1, number);
                 statement.executeUpdate();
-
-                return true;
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-        } else {
-            return  false;
         }
     }
 }
