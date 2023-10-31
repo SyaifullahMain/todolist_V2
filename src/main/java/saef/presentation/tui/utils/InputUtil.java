@@ -7,9 +7,11 @@ import java.util.regex.Pattern;
 
 public class InputUtil {
     private final Scanner scanner;
+    private final ResourceBundleUtil bundle;
 
-    public InputUtil(InputStream source) {
+    public InputUtil(InputStream source, ResourceBundleUtil bundle) {
         this.scanner = new Scanner(source).useDelimiter(Pattern.compile("\r\n|\n"));
+        this.bundle = bundle;
     }
     public String getString(String prompt) {
         System.out.print(prompt);
@@ -21,7 +23,7 @@ public class InputUtil {
             if (!userInput.trim().isEmpty()) {
                 return userInput;
             }
-            System.out.println("Input can't be empty!");
+            System.out.println(bundle.loadBandle("cantEmpty"));
         }
     }
     public int getNonEmptyPositiveInteger(String prompt) {
@@ -31,7 +33,7 @@ public class InputUtil {
             try {
                 userInputNumber = Integer.parseInt(userInput);
             } catch (InputMismatchException e) {
-                System.out.println("Please insert the number correctly!");
+                System.out.println(bundle.loadBandle("pleaseInsertNumber"));
                 continue;
             }
             return userInputNumber;
