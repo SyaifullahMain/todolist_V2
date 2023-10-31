@@ -9,6 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TodoListRepository implements ITodoListRepository {
+
+//    create table todolist(
+//            id int not null auto_increment,
+//            todo varchar(255) not null,
+//            primary key(id)
+//    ) engine = InnoDB;
+
     private final HikariDataSource dataSource;
 
     public TodoListRepository(HikariDataSource dataSource) {
